@@ -13,14 +13,21 @@ namespace MyFirstProject_MVC_Core.Controllers
     [ApiController]
     public class CommandsController : ControllerBase // For MVC Controllers without view support
     {
-        private readonly MockCommanderRepo _repository = new MockCommanderRepo();
+        private readonly ICommanderRepo _repository;
+
+        public CommandsController(ICommanderRepo repository)
+        {
+            _repository = repository;
+        }
+        
+        //private readonly MockCommanderRepo _repository = new MockCommanderRepo();
         //GET api/commands
         [HttpGet]
         public ActionResult <IEnumerable<Command>> GetAllCommands()
         {
-            var commandItems = _repository.GetAppCommands();
+            var commandItems = _repository.GetAllCommands();
 
-            return Ok();
+            return Ok(commandItems);
         }
 
         //GET api/commands/{id}
@@ -29,7 +36,7 @@ namespace MyFirstProject_MVC_Core.Controllers
         {
             var commandItem = _repository.GetCommandbyId(id);
 
-            return Ok();
+            return Ok(commandItem);
         }
 
 

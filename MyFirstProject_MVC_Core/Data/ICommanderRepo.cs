@@ -8,7 +8,7 @@ namespace MyFirstProject_MVC_Core.Data
 {
     public interface ICommanderRepo
     {
-        IEnumerable<Command> GetAppCommands();
+        IEnumerable<Command> GetAllCommands();
         Command GetCommandbyId(int id);
     }
 }
