@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyFirstProject_MVC_Core.Data;
 using System;
+using Newtonsoft.Json.Serialization; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +31,8 @@ namespace MyFirstProject_MVC_Core
         {
             services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer
             (Configuration.GetConnectionString("CommanderConnection")));
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(x => { x.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();

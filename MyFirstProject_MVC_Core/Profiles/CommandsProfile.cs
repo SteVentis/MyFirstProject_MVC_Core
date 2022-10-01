@@ -15,6 +15,8 @@ namespace MyFirstProject_MVC_Core.Profiles
             //Source --> Target
             CreateMap<Command, CommandReadDto>();
             CreateMap<CommandCreateDto, Command>();
+            CreateMap<CommandUpdateDto, Command>();
+            CreateMap<Command, CommandUpdateDto>();
         }
     }
 }

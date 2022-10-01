@@ -25,6 +25,15 @@ namespace MyFirstProject_MVC_Core.Data
             
         }
 
+        public void DeleteCommand(Command cmd)
+        {
+            if (cmd is null)
+            {
+                throw new ArgumentException(nameof(cmd));
+            }
+            _context.Commands.Remove(cmd);
+        }
+
         public IEnumerable<Command> GetAllCommands()
         {
             return _context.Commands.ToList();
@@ -39,6 +48,11 @@ namespace MyFirstProject_MVC_Core.Data
         {
             return (_context.SaveChanges() >= 0);
 
+        }
+
+        public void UpdateCommand(Command cmd)
+        {
+            //Nothing
         }
     }
 }

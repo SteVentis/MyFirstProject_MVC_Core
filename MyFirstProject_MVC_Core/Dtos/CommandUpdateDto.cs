@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyFirstProject_MVC_Core.Dtos
 {
-    public class CommandCreateDto
+    public class CommandUpdateDto
     {
         [Required]
         [MaxLength(250)]

@@ -12,5 +12,7 @@ namespace MyFirstProject_MVC_Core.Data
         IEnumerable<Command> GetAllCommands();
         Command GetCommandbyId(int id);
         void CreateCommand(Command cmd);
+        void UpdateCommand(Command cmd);
+        void DeleteCommand(Command cmd);
     }
 }
